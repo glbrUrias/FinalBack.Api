@@ -30,6 +30,7 @@ namespace KalumNotas
                 options.UseSqlServer(Configuration
                     .GetConnectionString("DefaultConnectionString"))
             );
+            //services.AddControllers().add
             services.AddControllers();
         }
 
