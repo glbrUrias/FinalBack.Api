@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using KalumNotas.KalumDBContext;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace KalumNotas
 {
     public class Startup
@@ -30,7 +32,9 @@ namespace KalumNotas
                 options.UseSqlServer(Configuration
                     .GetConnectionString("DefaultConnectionString"))
             );
-            //services.AddControllers().add
+            //services.AddControllers()..AddNewtonsoftJson(options =>
+            //options.SerializerSettings.ReferenceLoopHandling = 
+            //Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddControllers();
         }
 

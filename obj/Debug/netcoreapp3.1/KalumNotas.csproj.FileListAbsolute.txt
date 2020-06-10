@@ -102,3 +102,7 @@ C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\obj\Debug\netcoreapp3.1\K
 C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\obj\Debug\netcoreapp3.1\KalumNotas.csproj.CopyComplete
 C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\obj\Debug\netcoreapp3.1\staticwebassets\KalumNotas.StaticWebAssets.Manifest.cache
 C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\obj\Debug\netcoreapp3.1\staticwebassets\KalumNotas.StaticWebAssets.xml
+C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\urias\Documents\KINAL\API\ApiFinal\KalumNotas\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
