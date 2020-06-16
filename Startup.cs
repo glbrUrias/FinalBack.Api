@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-
+using AutoMapper;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using KalumNotas.KalumDBContext;
 using Microsoft.Extensions.DependencyInjection;
+using KalumNotas.Entities;
+using KalumNotas.Models;
 
 namespace KalumNotas
 {
@@ -28,6 +30,13 @@ namespace KalumNotas
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(configuration => {
+            configuration.CreateMap<Alumno,AlumnoDTO>().ConstructUsing(Alumno => new AlumnoDTO{FullName = $"{Alumno.Apellidos} {Alumno.Nombres}"});
+            configuration.CreateMap<AlumnoCreateDTO,Alumno>();
+            configuration.CreateMap<AlumnoUpdateDTO,Alumno>();
+            },
+            typeof(Startup));
+            
             services.AddDbContext<KalumNotasDBContext>(options => 
                 options.UseSqlServer(Configuration
                     .GetConnectionString("DefaultConnectionString"))
