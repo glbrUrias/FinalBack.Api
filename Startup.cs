@@ -34,6 +34,13 @@ namespace KalumNotas
             configuration.CreateMap<Alumno,AlumnoDTO>().ConstructUsing(Alumno => new AlumnoDTO{FullName = $"{Alumno.Apellidos} {Alumno.Nombres}"});
             configuration.CreateMap<AlumnoCreateDTO,Alumno>();
             configuration.CreateMap<AlumnoUpdateDTO,Alumno>();
+
+
+            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
+            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
+            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
+            
+
             },
             typeof(Startup));
             

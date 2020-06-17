@@ -5,13 +5,13 @@ namespace KalumNotas.Entities
     public class Alumno
     {
          public int Carne {get;set;}
-        //[Required]
+        [Required]
         public int NoExpediente {get;set;}
-        //[Required]
+        [Required]
         public string Apellidos {get;set;}
-        //[Required]
+        [Required]
         public string Nombres {get;set;}
-        //[EmailAddress]
+        [EmailAddress]
         public string Email{get;set;}
         
     }

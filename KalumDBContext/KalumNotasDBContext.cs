@@ -16,9 +16,13 @@ namespace KalumNotas.KalumDBContext
             modelBuilder.Entity<Alumno>().HasKey(x=> new{x.Carne});
             //aqui se coloca cuando hay una relacion de uno a muchos o de una a una como aqui arriba
             //se pone la lleve primaria si no dice AlumnoId, si dice asi como aqui arriba carne
+            modelBuilder.Entity<AsignacionAlumno>().HasKey(x=> new{x.AsignacionId});
 
         }
         public DbSet<Alumno> Alumnos {get;set;}
         //aqui se coloca cuando hay una relacion de uno a muchos o de una a una como aqui arriba
+        public DbSet<AsignacionAlumno> AsignacionAlumnos {get;set;}
+
+    
     }
 }
