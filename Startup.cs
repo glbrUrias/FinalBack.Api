@@ -32,15 +32,37 @@ namespace KalumNotas
         {
             services.AddAutoMapper(configuration => {
             configuration.CreateMap<Alumno,AlumnoDTO>().ConstructUsing(Alumno => new AlumnoDTO{FullName = $"{Alumno.Apellidos} {Alumno.Nombres}"});
-            configuration.CreateMap<AlumnoCreateDTO,Alumno>();
+            configuration.CreateMap<AlumnoCreateDTO,Alumno>();//SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN 
             configuration.CreateMap<AlumnoUpdateDTO,Alumno>();
 
 
             configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
-            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
+            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();//SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN
             configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
             
+    //SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN
+            configuration.CreateMap<DetalleActividad,DetalleActividadDTO>().ConstructUsing(DetalleActividad => new DetalleActividadDTO{
+                DetalleActividadId = DetalleActividad.DetalleActividadId,
+                SeminarioId=DetalleActividad.SeminarioId,NombreActividad= DetalleActividad.NombreActividad,
+                NotaActividad=DetalleActividad.NotaActividad, FechaCreacion=DetalleActividad.FechaCreacion,
+                FechaEntrega=DetalleActividad.FechaEntrega, FechaPostergacion=DetalleActividad.FechaPostergacion,
+                Estado=DetalleActividad.Estado});
+            configuration.CreateMap<DetalleActividadCreateDTO,DetalleActividad>();
+            configuration.CreateMap<DetalleActividadUpdateDTO,DetalleActividad>();
 
+/*
+            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
+            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
+            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
+
+            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
+            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
+            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
+
+            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
+            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
+            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
+*/
             },
             typeof(Startup));
             

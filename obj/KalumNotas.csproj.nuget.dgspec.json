@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\urias\\Documents\\KINAL\\API\\ApiFinal\\KalumNotas\\KalumNotas.csproj": {}
+    "C:\\Users\\urias\\Documents\\KINAL\\FINALAPI\\ApiFinal\\KalumNotas\\KalumNotas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\urias\\Documents\\KINAL\\API\\ApiFinal\\KalumNotas\\KalumNotas.csproj": {
+    "C:\\Users\\urias\\Documents\\KINAL\\FINALAPI\\ApiFinal\\KalumNotas\\KalumNotas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\urias\\Documents\\KINAL\\API\\ApiFinal\\KalumNotas\\KalumNotas.csproj",
+        "projectUniqueName": "C:\\Users\\urias\\Documents\\KINAL\\FINALAPI\\ApiFinal\\KalumNotas\\KalumNotas.csproj",
         "projectName": "KalumNotas",
-        "projectPath": "C:\\Users\\urias\\Documents\\KINAL\\API\\ApiFinal\\KalumNotas\\KalumNotas.csproj",
+        "projectPath": "C:\\Users\\urias\\Documents\\KINAL\\FINALAPI\\ApiFinal\\KalumNotas\\KalumNotas.csproj",
         "packagesPath": "C:\\Users\\urias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\urias\\Documents\\KINAL\\API\\ApiFinal\\KalumNotas\\obj\\",
+        "outputPath": "C:\\Users\\urias\\Documents\\KINAL\\FINALAPI\\ApiFinal\\KalumNotas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\urias\\AppData\\Roaming\\NuGet\\NuGet.Config",
