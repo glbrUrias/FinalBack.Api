@@ -23,7 +23,7 @@ namespace KalumNotas.KalumDBContext
         //aqui se coloca cuando hay una relacion de uno a muchos o de una a una como aqui arriba
         public DbSet<AsignacionAlumno> AsignacionAlumnos {get;set;}
         public DbSet<DetalleActividad> DetalleActividades {get;set;}
-        //public DbSet<DetalleNota> DetalleNotas {get;set;}
+        public DbSet<DetalleNota> DetalleNotas {get;set;}
         //public DbSet<Modulo> Modulos {get;set;}
         //public DbSet<Seminario> Seminarios {get;set;}
     }

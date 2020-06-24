@@ -50,11 +50,13 @@ namespace KalumNotas
             configuration.CreateMap<DetalleActividadCreateDTO,DetalleActividad>();
             configuration.CreateMap<DetalleActividadUpdateDTO,DetalleActividad>();
 
-/*
-            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
-            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
-            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
 
+            configuration.CreateMap<DetalleNota,DetalleNotaDTO>().ConstructUsing(DetalleNota => new DetalleNotaDTO{
+                DetalleNotaId = DetalleNota.DetalleNotaId, DetalleActividadId=DetalleNota.DetalleActividadId,
+                Carne=DetalleNota.Carne, ValorNota=DetalleNota.ValorNota});
+            configuration.CreateMap<DetalleNotaCreateDTO,DetalleNota>();
+            configuration.CreateMap<DetalleNotaUpdateDTO,DetalleNota>();
+/*
             configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
             configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
             configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();

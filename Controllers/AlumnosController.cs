@@ -25,6 +25,7 @@ namespace KalumNotas.Controllers
             this.logger = logger;
             this.dBContext = dBContext;
         }
+        //SE USA PARA BUSQUEDA DE VARIOS DATOS, QUE CONCUERDEN COMO UN NOMBRE "FRANCISCO"...TRAE A TODOS LOS FRANCISCOS
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AlumnoDTO>>>GetAlumnos(string? nombre)//sirve para obtener todos los alumnos o solo uno con el nombre 
         {//esta consulta se hizo doble pporque si no hubiera dos [HttpGet] en dos metodos y caemos en ambiguedad
@@ -54,6 +55,7 @@ namespace KalumNotas.Controllers
                 return lista;
             }
         }
+        //SE USA PARA BUSQUEDA COMO ID ...QUE ES DATO UNICO..NO FUNCIONA PARA DATOS QUE SE REPITAN
         [HttpGet("{carne}/{seccion?}", Name = "GetAlumno")] 
         //estos son PARAMETROS PATH tiene que venir fijos sino truena...si se le pone signo ? es opcional el parametro
         //se puede pones hasta seccion=unica.....para que sea siempre asi......y se tiene que pasar fijo como parametros aqui abajao
