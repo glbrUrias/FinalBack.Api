@@ -40,7 +40,7 @@ namespace KalumNotas
             configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();//SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN
             configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
             
-    //SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN
+                //SE COLOCAN LOS QUE QUERRAMOS QUE SE MUESTREN
             configuration.CreateMap<DetalleActividad,DetalleActividadDTO>().ConstructUsing(DetalleActividad => new DetalleActividadDTO{
                 DetalleActividadId = DetalleActividad.DetalleActividadId,
                 SeminarioId=DetalleActividad.SeminarioId,NombreActividad= DetalleActividad.NombreActividad,
@@ -56,15 +56,21 @@ namespace KalumNotas
                 Carne=DetalleNota.Carne, ValorNota=DetalleNota.ValorNota});
             configuration.CreateMap<DetalleNotaCreateDTO,DetalleNota>();
             configuration.CreateMap<DetalleNotaUpdateDTO,DetalleNota>();
-/*
-            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
-            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
-            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
 
-            configuration.CreateMap<AsignacionAlumno,AsignacionAlumnoDTO>().ConstructUsing(AsignacionAlumno => new AsignacionAlumnoDTO{AsignacionId = AsignacionAlumno.AsignacionId});
-            configuration.CreateMap<AsignacionCreateDTO,AsignacionAlumno>();
-            configuration.CreateMap<AsignacionUpdateDTO,AsignacionAlumno>();
-*/
+
+            configuration.CreateMap<Modulo,ModuloDTO>().ConstructUsing(Modulo => new ModuloDTO{
+                ModuloId = Modulo.ModuloId, CarreraId=Modulo.CarreraId, NombreModulo=Modulo.NombreModulo,
+                NumeroSeminarios=Modulo.NumeroSeminarios});
+            configuration.CreateMap<ModuloCreateDTO,Modulo>();
+            configuration.CreateMap<ModuloUpdateDTO,Modulo>();
+
+
+            configuration.CreateMap<Seminario,SeminarioDTO>().ConstructUsing(Seminario => new SeminarioDTO{
+                SeminarioId = Seminario.SeminarioId, ModuloId=Seminario.ModuloId,
+                NombreSeminario= Seminario.NombreSeminario, FechaInicio=Seminario.FechaInicio,
+                FechaFin=Seminario.FechaFin});
+            configuration.CreateMap<SeminarioCreateDTO,Seminario>();
+            configuration.CreateMap<SeminarioUpdateDTO,Seminario>();
             },
             typeof(Startup));
             

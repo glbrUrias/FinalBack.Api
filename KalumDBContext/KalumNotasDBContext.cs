@@ -24,7 +24,7 @@ namespace KalumNotas.KalumDBContext
         public DbSet<AsignacionAlumno> AsignacionAlumnos {get;set;}
         public DbSet<DetalleActividad> DetalleActividades {get;set;}
         public DbSet<DetalleNota> DetalleNotas {get;set;}
-        //public DbSet<Modulo> Modulos {get;set;}
-        //public DbSet<Seminario> Seminarios {get;set;}
+        public DbSet<Modulo> Modulos {get;set;}
+        public DbSet<Seminario> Seminarios {get;set;}
     }
 }
