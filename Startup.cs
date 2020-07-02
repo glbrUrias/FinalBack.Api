@@ -15,6 +15,10 @@ using KalumNotas.KalumDBContext;
 using Microsoft.Extensions.DependencyInjection;
 using KalumNotas.Entities;
 using KalumNotas.Models;
+using KalumNotas.Helpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace KalumNotas
 {
@@ -73,11 +77,23 @@ namespace KalumNotas
             configuration.CreateMap<SeminarioUpdateDTO,Seminario>();
             },
             typeof(Startup));
-            
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options=>options.TokenValidationParameters=new 
+                TokenValidationParameters{
+                    ValidateIssuer= false,
+                    ValidateAudience=false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(Configuration ["JWT:key"])),
+                    ClockSkew = TimeSpan.Zero
+                });
             services.AddDbContext<KalumNotasDBContext>(options => 
                 options.UseSqlServer(Configuration
                     .GetConnectionString("DefaultConnectionString"))
             );
+
+            services.AddControllers(options => options.Filters.Add(new ErrorFilterException()));
             //services.AddControllers()..AddNewtonsoftJson(options =>
             //options.SerializerSettings.ReferenceLoopHandling = 
             //Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -91,13 +107,11 @@ namespace KalumNotas
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
+            app.UseAuthentication();
+            app.UseResponseCaching();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

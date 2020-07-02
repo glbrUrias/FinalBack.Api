@@ -8,16 +8,23 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using KalumNotas.Models;
 using AutoMapper;
+using Microsoft.Net.Http.Headers;
+using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace KalumNotas.Controllers
 {
     [Route("/KalumNotas/v1/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes=JwtBearerDefaults.AuthenticationScheme, Roles ="Admin")]//se le indica que rol, puede ingresar a la pagina"admin" "user"
     public class AlumnosController : ControllerBase
     {
         private readonly KalumNotasDBContext dBContext;
         private readonly ILogger<AlumnosController> logger;
         private readonly IMapper mapper;
+        private ApiLog apiLog = new ApiLog() {Api = "KalumNotas", Version="v1.0.0"};
+
         public AlumnosController(IMapper mapper,ILogger<AlumnosController> logger,
         KalumNotasDBContext dBContext)
         {
@@ -30,6 +37,7 @@ namespace KalumNotas.Controllers
         public async Task<ActionResult<IEnumerable<AlumnoDTO>>>GetAlumnos(string? nombre)//sirve para obtener todos los alumnos o solo uno con el nombre 
         {//esta consulta se hizo doble pporque si no hubiera dos [HttpGet] en dos metodos y caemos en ambiguedad
             
+            long inicio = DateTime.Now.Second;
             logger.LogInformation("Iniciando proceso de consulta de alumnos");
             List<Alumno> alumnos=null;
             if(nombre==null)//si no viene nombre entonces nos mostrara todos
@@ -49,6 +57,16 @@ namespace KalumNotas.Controllers
             }
             else 
             {
+                apiLog.CodigoRespuesta="200";
+                apiLog.NombreCliente=this.Request.Host.Host;
+                apiLog.EndPoint=this.Request.Path;
+                apiLog.Ip=this.Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                apiLog.LlaveApi=this.Request.Headers[HeaderNames.Authorization];
+                apiLog.Mensaje="Finalizando proceso de busqueda";
+                apiLog.TiempoRespuesta=DateTime.Now.Second-inicio;
+                apiLog.Fecha=string.Format("{0:s}",DateTime.Now);
+                //LoggerExtensions.LogInformation(Newtonsoft.Json);
+
                 logger.LogInformation("Finalizando proceso de busqueda");
                 var lista = mapper.Map<List<AlumnoDTO>>(alumnos);
 
