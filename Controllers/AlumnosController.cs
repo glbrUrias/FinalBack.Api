@@ -65,11 +65,8 @@ namespace KalumNotas.Controllers
                 apiLog.Mensaje="Finalizando proceso de busqueda";
                 apiLog.TiempoRespuesta=DateTime.Now.Second-inicio;
                 apiLog.Fecha=string.Format("{0:s}",DateTime.Now);
-                //LoggerExtensions.LogInformation(Newtonsoft.Json);
-
-                logger.LogInformation("Finalizando proceso de busqueda");
+                logger.LogInformation(Newtonsoft.Json.JsonConvert.SerializeObject(apiLog));
                 var lista = mapper.Map<List<AlumnoDTO>>(alumnos);
-
                 return lista;
             }
         }
